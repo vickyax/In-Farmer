@@ -21,7 +21,7 @@
           <br />
           <br />
           For Help and more information about the Registration process click on
-          <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+          <a class="text-pink-500 underline" href="https://">link</a>
         </p>
       </div>
       <div class="w-full sm:w-1/2 p-6">
@@ -43,7 +43,7 @@
             <br />
            
               For more information
-            <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+            <a class="text-pink-500 underline" href="https://">link</a>
           </p>
         </div>
       </div>

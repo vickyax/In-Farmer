@@ -55,17 +55,7 @@
 
 <!-- Add Tailwind CSS for animations -->
 <style>
-	.gradient-glaze {
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(90deg, rgba(80, 70, 227, 0.2), rgba(245, 18, 18, 0.6), rgba(255, 255, 255, 0.2));
-    background-size: 200% auto;
-    color: #b64545; /* Your base text color */
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: glaze-animation 6s linear infinite;
-}
+	
 
 @keyframes glaze-animation {
     0% {
