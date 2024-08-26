@@ -9,7 +9,7 @@
     let arrivalDate;
     let data = [];
 
-    const apiKey = '579b464db66ec23bdd0000017616c6b1f3a44ed95f520b4176d4f7b4';
+    const apiKey = import.meta.env.VITE_AGRI_DATA_KEY;
     const baseURL = 'https://api.data.gov.in/resource/35985678-0d79-46b4-9ed6-6f13308a1d24';
 
     // Helper function to fetch data for a specific date
@@ -63,7 +63,9 @@
             .range([height - margin.bottom, margin.top]);
 
         const line = d3.line()
+            // @ts-ignore
             .x(d => x(d.date))
+            // @ts-ignore
             .y(d => y(d.price));
 
         const svgElement = d3.select(svg)

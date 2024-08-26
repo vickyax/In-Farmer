@@ -5,8 +5,8 @@ import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "fire
 
 // Firebase configuration
 const firebaseConfig = {
-    databaseURL: "https://farmer-bea99-default-rtdb.asia-southeast1.firebasedatabase.app/",
-    storageBucket: "gs://farmer-bea99.appspot.com"
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
 };
 
 // Initialize Firebase app if not already initialized
