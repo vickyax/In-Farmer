@@ -12,7 +12,6 @@
     const apiKey = import.meta.env.VITE_AGRI_DATA_KEY;
     const baseURL = 'https://api.data.gov.in/resource/35985678-0d79-46b4-9ed6-6f13308a1d24';
 
-    // Helper function to fetch data for a specific date
     async function fetchDataForDate(date) {
         const formattedDate = d3.timeFormat('%d/%m/%Y')(date);
         const response = await fetch(
@@ -26,33 +25,27 @@
     }
 
     async function fetchData() {
-        if (!arrivalDate) {
-            return;
-        }
+        if (!arrivalDate) return;
 
         const promises = [];
         const startDate = new Date(arrivalDate);
 
-        // Get data for the past 10 days including the selected arrival date
         for (let i = 0; i < 10; i++) {
             const date = new Date(startDate);
             date.setDate(date.getDate() - i);
             promises.push(fetchDataForDate(date));
         }
 
-        // Resolve all promises
         const results = await Promise.all(promises);
-
-        // Flatten the array of results
         data = results.flat().sort((a, b) => a.date - b.date);
 
         drawChart();
     }
 
     function drawChart() {
-        const width = 500;
-        const height = 300;
-        const margin = { top: 20, right: 20, bottom: 30, left: 50 };
+        const width = 600;
+        const height = 400;
+        const margin = { top: 40, right: 20, bottom: 50, left: 60 };
 
         const x = d3.scaleTime()
             .domain(d3.extent(data, d => d.date))
@@ -72,25 +65,97 @@
             .attr('width', width)
             .attr('height', height);
 
-        svgElement.selectAll('*').remove(); // Clear previous content
+        svgElement.selectAll('*').remove();
 
-        svgElement.append('path')
+        // Add gridlines
+        svgElement.append('g')
+            .attr('class', 'grid')
+            .attr('transform', `translate(0,${height - margin.bottom})`)
+            // @ts-ignore
+            .call(d3.axisBottom(x).ticks(d3.timeDay.every(1)).tickSize(-height + margin.top + margin.bottom).tickFormat(''))
+            .selectAll('.tick line')
+            .style('stroke', 'lightgray');
+
+        svgElement.append('g')
+            .attr('class', 'grid')
+            .attr('transform', `translate(${margin.left},0)`)
+            // @ts-ignore
+            .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(''))
+            .selectAll('.tick line')
+            .style('stroke', 'lightgray');
+
+        // Draw the line with animation
+        const path = svgElement.append('path')
             .datum(data)
             .attr('fill', 'none')
             .attr('stroke', 'steelblue')
-            .attr('stroke-width', 1.5)
+            .attr('stroke-width', 2)
             .attr('d', line);
 
+        const totalLength = path.node().getTotalLength();
+
+        path.attr("stroke-dasharray", totalLength + " " + totalLength)
+            .attr("stroke-dashoffset", totalLength)
+            .transition()
+            .duration(2000)
+            .ease(d3.easeLinear)
+            .attr("stroke-dashoffset", 0);
+
+        // Add axes
         svgElement.append('g')
             .attr('transform', `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(x).ticks(d3.timeDay.every(1)).tickFormat(d3.timeFormat('%d %b'))); // Show day of month
+            .call(d3.axisBottom(x).ticks(d3.timeDay.every(1)).tickFormat(d3.timeFormat('%d %b')));
 
         svgElement.append('g')
             .attr('transform', `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y));
+            .call(d3.axisLeft(y).ticks(5));
+
+        // Add axis labels
+        svgElement.append('text')
+            .attr('x', -(height / 2))
+            .attr('y', margin.left / 3)
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+            .attr('class', 'axis-label')
+            .text('Price (₹)');
+
+        svgElement.append('text')
+            .attr('x', width / 2)
+            .attr('y', height - margin.bottom / 3)
+            .attr('text-anchor', 'middle')
+            .attr('class', 'axis-label')
+            .text('Date');
+
+        // Add tooltip
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        svgElement.selectAll("circle")
+            .data(data)
+            .enter().append("circle")
+            .attr("r", 4)
+            .attr("cx", d => x(d.date))
+            .attr("cy", d => y(d.price))
+            .attr("fill", "steelblue")
+            .attr("opacity", 0)
+            .transition()
+            // @ts-ignore
+            .delay((d, i) => i * 200)  // Delay to create a staggered animation
+            .duration(500)
+            .attr("opacity", 1)
+            .on("mouseover", (event, d) => {
+                tooltip.transition().duration(200).style("opacity", .9);
+                // @ts-ignore
+                tooltip.html(`Date: ${d3.timeFormat("%d %b %Y")(d.date)}<br/>Price: ₹${d.price}`)
+                    .style("left", (event.pageX + 5) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", () => {
+                tooltip.transition().duration(500).style("opacity", 0);
+            });
     }
 
-    // Fetch data when component mounts
     onMount(fetchData);
 </script>
 
@@ -108,8 +173,34 @@
         <label for="arrival-date" class="block text-sm font-medium text-gray-700">Arrival Date:</label>
         <input type="date" id="arrival-date" bind:value={arrivalDate} on:change={fetchData} class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
-
 </div>
-<div class="flex flex-col items-center">
+
+<div class="center items-center relative">
     <svg bind:this={svg} class="mt-4"></svg>
 </div>
+
+<style>
+    .axis-label {
+        font-size: 12px;
+        fill: #333;
+    }
+
+    .tooltip {
+        position: absolute;
+        text-align: center;
+        width: auto;
+        height: auto;
+        padding: 8px;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+    .grid .tick line {
+        stroke: lightgray;
+        stroke-opacity: 0.7;
+        shape-rendering: crispEdges;
+    }
+</style>
