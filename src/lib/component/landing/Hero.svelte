@@ -1,19 +1,24 @@
 <!--Hero-->
+<script>
+    import { t } from "$lib/i18n";
+</script>
 <div class="pt-24 bg-gradient-to-b from-green-200 to-green-500">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full justify-center items-center text-center md:text-center animate-fadeInLeft">
-            <p class=" tracking-loose w-full text-green-700 opacity-[80%] shine-animation">Farming made easier</p>
+            <p class=" tracking-loose w-full text-green-700 opacity-[80%] shine-animation">{$t("slogan1")}</p>
             <h1 class="my-4  text-5xl font-bold leading-tight ">
-               Be Independent and Farm at your own pace
+               {$t("slogan2")}
             </h1>
             <p class="leading-normal text-2xl mb-8 text-green-700 ">
-                Register yourself as a Farmer, Retailer or a Transporter
+                {$t("slogan3")}
+                
             </p>
             <button
-                class="flex text-center justfy-center items-center mx-auto lg:mx-0 hover:underline bg-green-700 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-110 duration-300 ease-in-out"
+            class="flex text-center justfy-center items-center mx-auto lg:mx-0 hover:underline bg-green-700 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-110 duration-300 ease-in-out"
             >
-                Get Started
+            {$t("start")}
+                
             </button>
         </div>
         <!--Right Col-->

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from './components/Button.svelte';
+  import {t} from '$lib/i18n'
 </script>
 
 <!-- Change the colour #f8fafc to match the previous section colour -->
@@ -41,11 +42,11 @@
 
 <section class="mx-0 text-center w-full bg-green-400">
   <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white pt-3">
-    Support us
+    {$t("sp")}
   </h1>
   <div class="w-full mb-4 ">
     <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t" />
   </div>
-  <h3 class="my-4 text-3xl leading-tight mx-[50px]">“Those who are happiest are those who do the most for others. “</h3>
-  <Button >Support</Button>
+  <h3 class="my-4 text-3xl leading-tight mx-[50px]">{$t("finalslogan")}</h3>
+  <Button >{$t("sp")}</Button>
 </section>

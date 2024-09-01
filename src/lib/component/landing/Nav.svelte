@@ -2,7 +2,8 @@
   import { goto } from '$app/navigation';
   import { clickOutside, clickOutsideAction } from '$lib/actions/clickOutside';
   import Button from './components/Button.svelte';
-
+  import { t, locale, locales } from "$lib/i18n";
+    import { page } from '$app/stores';
   let y: number;
   let navFloat = false;
   $: navFloat = y > 10;
@@ -46,7 +47,8 @@
           alt="Farmer Icon"
           class="h-8 inline" 
         />
-        In-Farmer
+        {$t("page.title")}
+        
       </a>
     </div>
     <div bind:this={hambugerEl} class="block lg:hidden pr-4">
@@ -56,7 +58,7 @@
         class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
         <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>Menu</title>
+          <title>{$t("menu")}</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
       </button>
@@ -68,18 +70,26 @@
     >
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">Login</a>
+          <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">{$t("login")}</a>
         </li>
         <li class="mr-3">
           <a
             class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-            href="#">Services</a
+            href="#">{$t("services")}</a
           >
         </li>
         <li class="mr-3">
           <a
             class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-            href="#">FAQs</a
+            href="#">{$t("faq")}</a
+          >
+        </li>
+        <li class="mr-3">
+          <p><select bind:value={$locale}>
+            {#each locales as l}
+              <option value={l}>{l}</option>
+            {/each}
+          </select></p
           >
         </li>
       </ul>
@@ -88,9 +98,9 @@
         on:click={() => navigateTo('/pages/Transport')}
         class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
-        Transport
+      {$t("transport")}
       </button>
-      <Button onClick={() => navigateTo('/pages/Buysell')} secondary={navFloat} center={false}>Buy/Sell</Button>
+      <Button onClick={() => navigateTo('/pages/Buysell')} secondary={navFloat} center={false}>{$t("buy/sell")}</Button>
     </div>
   </div>
   <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />

@@ -1,4 +1,7 @@
 <!--Footer-->
+<script>
+  import { t } from "$lib/i18n";
+</script>
 <footer class="bg-white">
 	<div class="container mx-auto px-8">
 		<div class="w-full flex flex-col md:flex-row py-6">
@@ -7,47 +10,46 @@
 				
 			</div>
 			<div class="flex-1">
-				<p class="uppercase text-gray-500 md:mb-6">Links</p>
+				<p class="uppercase text-gray-500 md:mb-6">{$t("link")}</p>
 				<ul class="list-reset mb-6">
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>FAQ</a
+							>{$t("faq")}</a
 						>
 					</li>
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Help</a
+							>{$t("h")}</a
 						>
 					</li>
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Support</a
+							>{$t("sp")}</a
 						>
 					</li>
 				</ul>
 			</div>
 			<div class="flex-1">
-				<p class="uppercase text-gray-500 md:mb-6">Legal</p>
+				<p class="uppercase text-gray-500 md:mb-6">{$t("le")}</p>
 				<ul class="list-reset mb-6">
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Terms</a
-						>
+							>{$t("te")}</a>
 					</li>
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Privacy</a
+							>{$t("pr")}</a
 						>
 					</li>
 				</ul>
 			</div>
 			<div class="flex-1">
-				<p class="uppercase text-gray-500 md:mb-6">Social</p>
+				<p class="uppercase text-gray-500 md:mb-6">{$t("so")}</p>
 				<ul class="list-reset mb-6">
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
@@ -70,24 +72,24 @@
 				</ul>
 			</div>
 			<div class="flex-1">
-				<p class="uppercase text-gray-500 md:mb-6">Company</p>
+				<p class="uppercase text-gray-500 md:mb-6">{$t("co")}</p>
 				<ul class="list-reset mb-6">
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Official Blog</a
+							>{$t("of")}</a
 						>
 					</li>
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>About Us</a
+							>{$t("ab")}</a
 						>
 					</li>
 					<li class="mt-2 inline-block mr-2 md:block md:mr-0">
 						<!-- svelte-ignore a11y-invalid-attribute -->
 						<a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500"
-							>Contact</a
+							>{$t("c")}</a
 						>
 					</li>
 				</ul>

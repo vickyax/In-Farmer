@@ -5,6 +5,7 @@
 	import Cards from './Cards.svelte';
 	import CallToAction from './CallToAction.svelte';
 	import Footer from './Footer.svelte';
+	
 </script>
 
 <div
@@ -12,7 +13,7 @@
 	style="font-family: 'Source Sans Pro', sans-serif;"
 >
 	<Nav />
-
+	
 	<Hero />
 
 	<Features />

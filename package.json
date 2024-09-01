@@ -27,6 +27,7 @@
 		"d3": "^7.9.0",
 		"farm": "file:",
 		"firebase": "^10.13.0",
-		"svelte-chartjs": "^3.1.5"
+		"svelte-chartjs": "^3.1.5",
+		"svelte-i18n": "^4.0.0"
 	}
 }

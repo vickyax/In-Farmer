@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { fetchProducts } from '$lib/actions/firebase.js';
-  
+    import {t} from '$lib/i18n';
     let products = [];
     let isLoading = true;
 
@@ -16,7 +16,7 @@
 </script>
 
 <div class="container mx-auto py-10">
-    <h1 class="text-3xl font-bold text-center mb-5">Product List</h1>
+    <h1 class="text-3xl font-bold text-center mb-5">{$t("itl")}</h1>
 
     {#if isLoading}
         <div class="text-center py-20">

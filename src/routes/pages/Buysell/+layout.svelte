@@ -1,6 +1,7 @@
 <script>
     import { addProduct, uploadImage } from '$lib/actions/firebase.js';
     import { goto } from '$app/navigation';
+    import {t} from '$lib/i18n';
     // Reactive variables
     let name = '';
     let id = '';
@@ -59,12 +60,12 @@
 
 <main class="container mx-auto py-10">
     <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ml-5"
-    on:click={() => goto('/pages/Stock')}>Stock Value</button>
-    <h1 class="text-3xl font-bold text-center mb-5 ">Add Product</h1>
+    on:click={() => goto('/pages/Stock')}>{$t("stk")}</button>
+    <h1 class="text-3xl font-bold text-center mb-5 ">{$t("ads")}</h1>
     <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-        <input bind:value={name} placeholder="Product Name" class="border p-2 mb-4 block w-full rounded" />
-        <input bind:value={id} placeholder="Product ID" class="border p-2 mb-4 block w-full rounded" />
-        <input bind:value={price} placeholder="Price" class="border p-2 mb-4 block w-full rounded" />
+        <input bind:value={name} placeholder="{$t("it")}" class="border p-2 mb-4 block w-full rounded" />
+        <input bind:value={id} placeholder={$t("iti")} class="border p-2 mb-4 block w-full rounded" />
+        <input bind:value={price} placeholder={$t("price")} class="border p-2 mb-4 block w-full rounded" />
         <input bind:value={kg} placeholder="kg" class="border p-2 mb-4 block w-full rounded" />
         <input type="date" bind:value={date} class="border p-2 mb-4 block w-full rounded" />
         <input type="file" on:change={handleFileChange} class="border p-2 mb-4 block w-full rounded" /> <!-- File input for image upload -->
@@ -73,7 +74,7 @@
             {#if isLoading}
                 Adding Product...
             {:else}
-                Add Product
+                {$t("ad")}
             {/if}
         </button>
 
