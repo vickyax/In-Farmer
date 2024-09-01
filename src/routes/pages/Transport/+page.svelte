@@ -60,12 +60,12 @@
     {/if}
 
     <!-- Cart Element -->
-    <div class="fixed top-[130px] right-5 bg-white shadow-lg rounded-lg p-2 w-64">
-        <h2 class="text-xl font-bold">My orders</h2>
+    <div class="fixed top-[120px] right-1 bg-white shadow-lg rounded-lg  sm:px-[20px]">
+        <h2 class="lg:text-xl font-bold">My orders</h2>
         {#if cart.length > 0}
             <ul>
                 {#each cart as item}
-                    <li class="border-b py-2">
+                    <li class="border-b py-1">
                         <p class="font-semibold">{item.name}</p>
                         <p class="text-sm text-gray-500">Price: ₹{item.price}</p>
                         <p class="text-sm text-gray-500">{item.kg} Kg</p>
