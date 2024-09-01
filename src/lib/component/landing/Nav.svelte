@@ -3,7 +3,8 @@
   import { clickOutside, clickOutsideAction } from '$lib/actions/clickOutside';
   import Button from './components/Button.svelte';
   import { t, locale, locales } from "$lib/i18n";
-    import { page } from '$app/stores';
+  import { page } from '$app/stores';
+  import farmer from '$lib/farmer.png';
   let y: number;
   let navFloat = false;
   $: navFloat = y > 10;
@@ -39,13 +40,13 @@
       <a
         class:text-gray-800={navFloat}
         class:text-white={!navFloat}
-        class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-        href="#"
+        class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl cursor-pointer"
+        on:click={() => navigateTo('/')}
       >
         <img
-          src="farmer.png"
+          src={farmer}
           alt="Farmer Icon"
-          class="h-8 inline" 
+          class="h-8 inline"
         />
         {$t("page.title")}
         

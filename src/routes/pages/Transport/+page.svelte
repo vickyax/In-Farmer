@@ -1,9 +1,12 @@
 <script>
     import { onMount } from 'svelte';
     import { fetchProducts } from '$lib/actions/firebase.js';
-    import {t} from '$lib/i18n';
     import Button from '$lib/component/landing/components/Button.svelte';
+    import { t } from '$lib/i18n';
+    import Nav from '$lib/component/landing/Nav.svelte';
+
     let products = [];
+    let cart = [];
     let isLoading = true;
 
     // Fetch products from Firebase on component mount
@@ -14,10 +17,21 @@
             console.log('Fetched products:', products);
         });
     });
+
+    // Function to add a product to the cart
+    function addToCart(product) {
+        cart = [...cart, product]; // Adds the selected product to the cart array
+        console.log('Cart:', cart); // Debug log to check if the product is added
+    }
 </script>
 
-<div class="container mx-auto py-10">
-    <h1 class="text-3xl font-bold text-center mb-5 text-white">{$t("itl")}</h1>
+<div class="container mx-auto py-10 bg-gradient-to-r from-indigo-500 to-blue-500 relative">
+    <Nav/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h1 class="text-3xl font-bold text-center mb-5 text-white">Orders List</h1>
 
     {#if isLoading}
         <div class="text-center py-20">
@@ -35,15 +49,33 @@
                             <p class="text-gray-500">{product.kg} Kg</p>
                             <p class="text-gray-400 text-sm">ID: {product.id}</p>
                             <p class="text-gray-400 text-sm">Date: {product.date}</p>
-                            <Button green>Buy</Button>
+                            <button on:click={() => addToCart(product)}><Button blue>Take Order</Button></button>
                         </div>
                     </div>
                 {/each}
             {:else}
-                <p class="text-center text-gray-500">No products available.</p>
+                <p class="text-center text-gray-500">No Orders available.</p>
             {/if}
         </div>
     {/if}
+
+    <!-- Cart Element -->
+    <div class="fixed top-[130px] right-5 bg-white shadow-lg rounded-lg p-2 w-64">
+        <h2 class="text-xl font-bold">My orders</h2>
+        {#if cart.length > 0}
+            <ul>
+                {#each cart as item}
+                    <li class="border-b py-2">
+                        <p class="font-semibold">{item.name}</p>
+                        <p class="text-sm text-gray-500">Price: ₹{item.price}</p>
+                        <p class="text-sm text-gray-500">{item.kg} Kg</p>
+                    </li>
+                {/each}
+            </ul>
+        {:else}
+            <p class="text-gray-500">Your orders are empty.</p>
+        {/if}
+    </div>
 </div>
 
 <style>
