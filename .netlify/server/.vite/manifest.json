@@ -1,0 +1,209 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "name": "internal",
+    "src": ".svelte-kit/generated/server/internal.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js"
+    ]
+  },
+  "_Nav.js": {
+    "file": "chunks/Nav.js",
+    "name": "Nav",
+    "imports": [
+      "_ssr.js",
+      "_client.js",
+      "_i18n.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Nav.Bvmey5DK.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/farmer.Brvt1bwG.png"
+    ]
+  },
+  "_client.js": {
+    "file": "chunks/client.js",
+    "name": "client",
+    "imports": [
+      "_exports.js"
+    ]
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js",
+    "name": "exports"
+  },
+  "_firebase.js": {
+    "file": "chunks/firebase.js",
+    "name": "firebase"
+  },
+  "_i18n.js": {
+    "file": "chunks/i18n.js",
+    "name": "i18n",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "name": "index"
+  },
+  "_index2.js": {
+    "file": "chunks/index2.js",
+    "name": "index",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "name": "internal",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_ssr.js": {
+    "file": "chunks/ssr.js",
+    "name": "ssr"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "name": "entries/fallbacks/error.svelte",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_client.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "name": "index",
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js",
+      "_index.js",
+      "_exports.js",
+      "_index2.js"
+    ]
+  },
+  "src/lib/farmer.png": {
+    "file": "_app/immutable/assets/farmer.Brvt1bwG.png",
+    "src": "src/lib/farmer.png"
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "name": "entries/pages/_layout.svelte",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.Bw2ltvCk.css"
+    ]
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "name": "entries/pages/_page.svelte",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_Nav.js",
+      "_i18n.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CwETYYzf.css"
+    ]
+  },
+  "src/routes/api/add/+server.js": {
+    "file": "entries/endpoints/api/add/_server.js",
+    "name": "entries/endpoints/api/add/_server",
+    "src": "src/routes/api/add/+server.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "src/routes/pages/Buy/+page.svelte": {
+    "file": "entries/pages/pages/Buy/_page.svelte.js",
+    "name": "entries/pages/pages/Buy/_page.svelte",
+    "src": "src/routes/pages/Buy/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_firebase.js",
+      "_i18n.js",
+      "_Nav.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.DNPE4WUm.css"
+    ]
+  },
+  "src/routes/pages/Sell/+layout.svelte": {
+    "file": "entries/pages/pages/Sell/_layout.svelte.js",
+    "name": "entries/pages/pages/Sell/_layout.svelte",
+    "src": "src/routes/pages/Sell/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_Nav.js",
+      "_firebase.js",
+      "_client.js",
+      "_i18n.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.Bs6dgETG.css"
+    ]
+  },
+  "src/routes/pages/Sell/+page.server.js": {
+    "file": "entries/pages/pages/Sell/_page.server.js",
+    "name": "entries/pages/pages/Sell/_page.server",
+    "src": "src/routes/pages/Sell/+page.server.js",
+    "isEntry": true,
+    "imports": [
+      "_firebase.js"
+    ]
+  },
+  "src/routes/pages/Sell/+page.svelte": {
+    "file": "entries/pages/pages/Sell/_page.svelte.js",
+    "name": "entries/pages/pages/Sell/_page.svelte",
+    "src": "src/routes/pages/Sell/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_firebase.js",
+      "_i18n.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CSOin4Rk.css"
+    ]
+  },
+  "src/routes/pages/Stock/+page.svelte": {
+    "file": "entries/pages/pages/Stock/_page.svelte.js",
+    "name": "entries/pages/pages/Stock/_page.svelte",
+    "src": "src/routes/pages/Stock/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "src/routes/pages/Transport/+page.svelte": {
+    "file": "entries/pages/pages/Transport/_page.svelte.js",
+    "name": "entries/pages/pages/Transport/_page.svelte",
+    "src": "src/routes/pages/Transport/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_firebase.js",
+      "_Nav.js",
+      "_i18n.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CSOin4Rk.css"
+    ]
+  }
+}

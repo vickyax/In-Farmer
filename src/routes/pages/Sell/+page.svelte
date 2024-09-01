@@ -2,7 +2,6 @@
     import { onMount } from 'svelte';
     import { fetchProducts } from '$lib/actions/firebase.js';
     import {t} from '$lib/i18n';
-    import Button from '$lib/component/landing/components/Button.svelte';
     let products = [];
     let isLoading = true;
 
@@ -35,7 +34,6 @@
                             <p class="text-gray-500">{product.kg} Kg</p>
                             <p class="text-gray-400 text-sm">ID: {product.id}</p>
                             <p class="text-gray-400 text-sm">Date: {product.date}</p>
-                            <Button green>Buy</Button>
                         </div>
                     </div>
                 {/each}

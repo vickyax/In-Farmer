@@ -66,7 +66,7 @@
     </div>
     <div
       class:hidden={!showMenu}
-      class="hidden w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+      class="hidden w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20 text-center"
       id="nav-content"
     >
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
@@ -94,14 +94,17 @@
           >
         </li>
       </ul>
-      <button
-        id="navAction"
-        on:click={() => navigateTo('/pages/Transport')}
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-      >
-      {$t("transport")}
-      </button>
-      <Button onClick={() => navigateTo('/pages/Buysell')} secondary={navFloat} center={false}>{$t("buy/sell")}</Button>
+      <button  on:click={() => navigateTo('/pages/Transport')}  class="mx-[2px]">
+      <Button>{$t("transport")}
+      </Button>
+    </button>
+      <div class="mx-[2px]">
+      <Button onClick={() => navigateTo('/pages/Buy')} secondary={navFloat} center={false}>{$t("buy")}</Button>
+      </div>
+      <div class="mx-[2px]">
+      <Button onClick={() => navigateTo('/pages/Sell')} secondary={navFloat} center={false}>{$t("sell")}</Button>
+      </div>
+     
     </div>
   </div>
   <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
