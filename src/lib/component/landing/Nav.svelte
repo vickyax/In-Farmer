@@ -37,7 +37,7 @@
 >
   <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
     <div class="pl-4 flex items-center">
-      <a
+      <button
         class:text-gray-800={navFloat}
         class:text-white={!navFloat}
         class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl cursor-pointer"
@@ -50,7 +50,7 @@
         />
         {$t("page.title")}
         
-      </a>
+      </button>
     </div>
     <div bind:this={hambugerEl} class="block lg:hidden pr-4">
       <button
@@ -71,18 +71,18 @@
     >
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">{$t("login")}</a>
+          <button class="inline-block py-2 px-4 text-black font-bold no-underline">{$t("login")}</button>
         </li>
         <li class="mr-3">
-          <a
+          <button
             class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-            href="#">{$t("services")}</a
+            >{$t("services")}</button
           >
         </li>
         <li class="mr-3">
-          <a
+          <button
             class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-            href="#">{$t("faq")}</a
+            >{$t("faq")}</button
           >
         </li>
         <li class="mr-3">
