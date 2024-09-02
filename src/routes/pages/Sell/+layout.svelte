@@ -81,7 +81,7 @@ on:click={() => goto('/pages/Stock')}>{$t("stk")}</button>
         <input bind:value={price} placeholder={$t("price")} class="border p-2 mb-4 block w-full rounded" />
         <input bind:value={kg} placeholder="kg" class="border p-2 mb-4 block w-full rounded" />
         <input type="date" bind:value={date} class="border p-2 mb-4 block w-full rounded" />
-        <input bind:value={kg} placeholder="kg" class="border p-2 mb-4 block w-full rounded" />
+        <input bind:value={rating} placeholder="ratings" class="border p-2 mb-4 block w-full rounded" />
         <input type="file" on:change={handleFileChange} class="border p-2 mb-4 block w-full rounded" /> <!-- File input for image upload -->
         
         <button on:click={handleAddProduct} class="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600" disabled={isLoading}>
