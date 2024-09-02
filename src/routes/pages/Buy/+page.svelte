@@ -94,6 +94,19 @@
                             <p class="text-gray-500">{product.kg} Kg</p>
                             <p class="text-gray-400 text-sm">ID: {product.id}</p>
                             <p class="text-gray-400 text-sm">Date: {product.date}</p>
+                            <div class="text-gray-400 text-sm">
+                                Rating: 
+                                <span class="star-rating">
+                                    <!-- Rating Stars -->
+                                    {#each Array(5) as _, i}
+                                        <i class={
+                                            i + 1 <= product.rating ? 'fas fa-star text-yellow-500' : 
+                                            (i + 0.5 < product.rating ? 'fas fa-star-half-alt text-yellow-500' : 
+                                            'far fa-star text-yellow-500')
+                                        }></i>
+                                    {/each}
+                                </span> {product.rating}
+                            </div>
                             <button  on:click={() => openNegotiationModal(product)}><Button green>Buy</Button></button>
                         </div>
                     </div>
