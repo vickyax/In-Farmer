@@ -83,18 +83,17 @@ To bring **In-Farmer** to life, I developed it as a full-stack application, leve
   Firebase was the backbone of the backend, offering real-time database capabilities, authentication, and seamless integration with the frontend. It enabled features like user authentication, product listings, and transaction management.
 
 - **APIs**: REST APIs  
-  ![API Icon](https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_api.svg)  
+ 
   RESTful APIs were implemented to handle communication between the frontend and backend, ensuring smooth data flow and functionality.
 
-- **Government Agricultural API**:  
-  ![Government API Icon](https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_data.svg)  
+- **Government Agricultural API**:
+- 
   Integrated a government agricultural API to fetch real-time market prices for products, ensuring farmers and buyers have access to accurate and up-to-date pricing information.
 ![api response](main/projectImages/Screenshot%20(792).png?raw=true)
 
 ## Hosting & Deployment
 - **Platform**: Netlify  
-  ![Netlify Icon](https://raw.githubusercontent.com/netlify/netlify-cms/master/website/static/img/netlify-logo.svg)  
-![netlify](https://github.com/vickyax/In-Farmer/blob/main/projectImages/Screenshot%20(790).png?raw=true)
+  
   Netlify was chosen for hosting due to its simplicity, scalability, and support for continuous deployment. It allowed for automatic updates and ensured the platform was always running the latest version.
 ![netlify2](projectImages/Screenshot%20(788).png?raw=true)
 
